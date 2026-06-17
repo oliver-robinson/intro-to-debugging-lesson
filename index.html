@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="An interactive lesson where students fix a broken video player by reading error clues and choosing the right fix — a hands-on introduction to debugging.">
+<title>Intro to Debugging — Why Won't It Load?</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23000000'/%3E%3Ctext x='50' y='66' font-size='52' text-anchor='middle' fill='%2364BCE4'%3E%E2%9C%93%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar__inner">
+    <div class="brand"><img src="sr1-logo.png" alt="SR1"></div>
+    <div class="crumb">Computer Science Basics  ›  <b>Intro to Debugging</b></div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <div class="sr-only" id="liveRegion" role="status" aria-live="polite"></div>
+
+  <section class="hero">
+    <h1>Why won't it load?</h1>
+    <p>Press play to start the video lesson. If something goes wrong, that's called a <span class="term">bug</span> — and figuring out how to fix it is called <span class="term">debugging</span>. You'll get clues, a few guesses to choose from, and a chance to try again until it works.</p>
+  </section>
+
+  <div class="player" id="player">
+    <div class="view active" id="viewPoster">
+      <button class="play-btn" id="playBtn" aria-label="Play video lesson">▶</button>
+      <div class="player-label">Intro to Debugging · 4:32</div>
+    </div>
+
+    <div class="view" id="viewLoading">
+      <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="player-label">Loading…</div>
+    </div>
+
+    <div class="view" id="viewError">
+      <div class="icon-circle warn" aria-hidden="true">!</div>
+      <h2 id="errorTitle">Something went wrong.</h2>
+      <div class="clue mono" id="errorClue">ERROR</div>
+    </div>
+
+    <div class="view" id="viewSuccess">
+      <div class="icon-circle success" aria-hidden="true">✓</div>
+      <h2>Lesson loaded!</h2>
+      <div class="player-label">In a real lesson, the video would start playing now.</div>
+    </div>
+  </div>
+
+  <section class="panel" id="panel">
+    <div class="progress-row">
+      <span class="label" id="progressLabel">Bug 1 of 3</span>
+      <div class="progress-dots" id="progressDots">
+        <i></i><i></i><i></i>
+      </div>
+    </div>
+
+    <h3 id="questionHeading">What do you think happened, and what should we try?</h3>
+
+    <div class="choices" id="choices"></div>
+
+    <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+
+    <details class="hint" id="hintBox">
+      <summary>💡 Need a hint?</summary>
+      <p id="hintText"></p>
+    </details>
+
+    <div class="next-row">
+      <button class="btn btn--primary" id="tryAgainBtn" disabled>Try loading again</button>
+    </div>
+  </section>
+
+  <section class="recap" id="recap">
+    <h3>You just practiced real debugging.</h3>
+    <p>Each time the video broke, you read the exact message, made a careful guess about why, tried a fix that matched that guess, and checked if it worked. When a guess was wrong, you ruled it out and tried another. That cycle — try it, check it, repeat — is exactly what programmers do every day. It's called debugging, and you just did it three times.</p>
+    <div class="case-log" id="caseLog"></div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
